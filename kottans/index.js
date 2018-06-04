@@ -1,14 +1,33 @@
 console.log(React);
 console.log(ReactDOM);
-function DemoComponent (){
-    return React.createElement(
-        'div',
-        {style: {background: '#123456', color: 'white'}},
-        'hello world'
+const r = React.createElement;
+
+function DemoComponent (props){
+    console.log(props);
+    return r(
+        'form',
+        {style: {background: '#fafffa', color: 'white'}},
+        r(
+            'label',
+            {},
+            r(
+                'input',
+                {type: 'text', placeholder: 'login'}
+
+            ),
+            r(
+                'input',
+                {type: 'password', placeholder: 'pass'}
+            )
+        ),
+        
     )
 }
 
 ReactDOM.render(
-    React.createElement(DemoComponent),
+    React.createElement(
+        DemoComponent,
+        {name:"vasia"}
+    ),
     document.querySelector('#content')
 )
