@@ -3,10 +3,14 @@ class DemoComponent extends React.Component {
     constructor(...args){
         super(...args);
         this.state = {
-
         };
     }
+    updateLogin(event){
+        console.log(event);
+    }
     render(){
+        //this.props
+        //this.state
         return r(
             'form',
             {style: {background: '#fafffa', color: 'white'}},
@@ -15,7 +19,7 @@ class DemoComponent extends React.Component {
                 {},
                 r(
                     'input',
-                    {type: 'text', placeholder: 'login', value: "vasia"}
+                    {type: 'text', placeholder: 'login', value: "vasia", onChange: this.updateLogin}
     
                 ),
                 r(
