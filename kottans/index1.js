@@ -3,9 +3,12 @@ class DemoComponent extends React.Component {
     constructor(...args){
         super(...args);
         this.state = {
+            login: "hedgehog"
         };
+        this.updateLogin = this.updateLogin.bind(this);
     }
     updateLogin(event){
+        this.setState({login: event.target.value});
         
     }
     render(){
@@ -19,7 +22,7 @@ class DemoComponent extends React.Component {
                 {},
                 r(
                     'input',
-                    {type: 'text', placeholder: 'login', value: "vasia", onChange: this.updateLogin}
+                    {type: 'text', placeholder: 'login', value: this.state.login, onChange: this.updateLogin}
     
                 ),
                 r(
