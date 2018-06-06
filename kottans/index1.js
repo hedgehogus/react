@@ -6,7 +6,7 @@ class DemoComponent extends React.Component {
         };
     }
     updateLogin(event){
-        console.log(event);
+        
     }
     render(){
         //this.props
