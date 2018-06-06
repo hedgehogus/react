@@ -3,13 +3,19 @@ class DemoComponent extends React.Component {
     constructor(...args){
         super(...args);
         this.state = {
-            login: "hedgehog"
+            login: "hedgehog",
+            password: 'wewe',
+            showPassword: false
         };
         this.updateLogin = this.updateLogin.bind(this);
+        this.setShowPassword = e => this.setState({showPassword: e.target.checked});
+        this.updatePass = this.updateLogin.bind(this);
     }
     updateLogin(event){
-        this.setState({login: event.target.value});
-        
+        this.setState({login: event.target.value});        
+    }
+    updatePass(event){
+        this.setState({password: event.target.value});
     }
     render(){
         //this.props
@@ -27,7 +33,19 @@ class DemoComponent extends React.Component {
                 ),
                 r(
                     'input',
-                    {type: 'password', placeholder: 'pass'}
+                    {type: this.state.showPassword? 'text':'password', 
+                    placeholder: 'pass',
+                    value: this.state.pasword,
+                    onChange: this.updatePass}
+                ),
+                r(
+                    'label',
+                    {},
+                    r(
+                        'input',
+                        {type: 'checkbox', onChange: this.setShowPassword}
+                    ),
+                    'Show password'
                 )
             ),
             
